@@ -1,4 +1,4 @@
-# Ethereum Block Explorer
+# Ethereum block explorer
 
 Ethereum Block Explorer by Eduardo Aire
 
@@ -6,14 +6,14 @@ Ethereum Block Explorer by Eduardo Aire
 
 [blockexplorer-ebon.vercel.app/](https://blockexplorer-ebon.vercel.app/)
 
-## Features
+## Features.
 
--   This project works on the Sepolia Network with an Alchemy API Key
--   It loads the latest block when the DApp is loaded
+-   This project runs on the Sepolia Network with an Alchemy API Key
+-   Loads the last block when the DApp is loaded
     -   API method `alchemy.core.getBlockNumber()`
--   It displays the data retreived by the block
+-   Displays the data retrieved by the block
     -   API method `alchemy.core.getBlockWithTransactions()`
--   It allows you to query any block with an input field
+-   Allows querying any block with an input field
     -   API method `alchemy.core.getBlock()`
--   If the block has transactions you can click on them to see who sent them and wo receive
-    -   API method `alchemy.core.getTransactionReceipt(tx)`
+-   If the block has transactions, you can click on them to see who sent them and who received them.
+    -   API method `alchemy.core.getTransactionReceipt()`
