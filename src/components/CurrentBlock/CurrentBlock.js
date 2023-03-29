@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { EthereumContext } from '../store/ethereum-context';
+import { EthereumContext } from '../../store/ethereum-context';
 import classes from './CurrentBlock.module.css';
 
 export default function CurrentBlock() {
@@ -7,7 +7,7 @@ export default function CurrentBlock() {
     const network = alchemy.core.config.network.replace('eth-', '');
     return (
         <h1 className={classes.header}>
-            {currentBlock ? (
+            {currentBlock !== null ? (
                 <span>
                     {`Current ${network} Block: `}
                     <span className={classes['block-number']}>
@@ -15,7 +15,7 @@ export default function CurrentBlock() {
                     </span>
                 </span>
             ) : (
-                <span>Loading...</span>
+                <span>Loading Current Block...</span>
             )}
         </h1>
     );

@@ -11,13 +11,26 @@ const settings = {
 // Ethereum context initialization
 export const EthereumContext = React.createContext({
     alchemy: {},
-    currentBlock: 0,
+    currentBlock: null,
+    updateCurrentBlock() {},
 });
 // Alchemy provider
 const alchemy = new Alchemy(settings);
 // Ethereum context provider construction
 export default function EthereumContextProvider(props) {
-    const [currentBlock, setCurrentBlock] = useState(0);
+    const [currentBlock, setCurrentBlock] = useState(null),
+        updateCurrentBlock = async block => {
+            try {
+                const blockRes = await alchemy.core.getBlock(block);
+                if (blockRes && blockRes.number) {
+                    setCurrentBlock(blockRes.number);
+                } else {
+                    throw new Error('Block above the last block!');
+                }
+            } catch (err) {
+                alert(err);
+            }
+        };
     // Hook that updates latest block
     useCurrentBlock(alchemy, setCurrentBlock);
     return (
@@ -25,6 +38,7 @@ export default function EthereumContextProvider(props) {
             value={{
                 alchemy,
                 currentBlock,
+                updateCurrentBlock,
             }}
         >
             {props.children}

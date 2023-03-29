@@ -5,13 +5,17 @@ const useCurrentBlock = (alchemy, setCurrentBlock) => {
 
     // Helper function to get the latest block
     const getBlockNumber = useCallback(async () => {
-        setCurrentBlock(await core.getBlockNumber());
+        try {
+            setCurrentBlock(await core.getBlockNumber());
+        } catch (err) {
+            alert(err);
+        }
     }, [core, setCurrentBlock]);
 
-    // Check for newest blocks every second
+    // Check for newest block
     useEffect(() => {
         getBlockNumber();
-    });
+    }, [getBlockNumber]);
 };
 
 export default useCurrentBlock;
