@@ -6,7 +6,7 @@ Ethereum Block Explorer by Eduardo Aire
 
 [blockexplorer-ebon.vercel.app/](https://blockexplorer-ebon.vercel.app/)
 
-## Features.
+## Features
 
 -   This project runs on the Sepolia Network with an Alchemy API Key
 -   Loads the last block when the DApp is loaded
