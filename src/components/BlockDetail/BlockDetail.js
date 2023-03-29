@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useMemo } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { EthereumContext } from '../../store/ethereum-context';
 import { Utils } from 'alchemy-sdk';
 import DetailRecord from './DetailRecord';
